@@ -7,6 +7,15 @@ let keys = {};
 let updateInterval;
 let lastGameEndTime = 0;
 
+// Ako bestTime ne postoji u localStorage ili je null, postavalja se vrijednost na 0
+if (bestTime === null) {
+  bestTime = 0;
+  localStorage.setItem("bestTime", bestTime);
+} else {
+  // Ako postoji, konvertira se u float
+  bestTime = parseFloat(bestTime);
+}
+
 // Funkcija za inicijalizaciju igre
 function init() {
   canvas = document.getElementById("gameCanvas");
